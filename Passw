@@ -1,0 +1,42 @@
+<?php
+
+// Генерация случайного пароля
+function generatePassword($length = 8) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $password = '';
+    
+    for ($i = 0; $i < $length; $i++) {
+        $index = rand(0, strlen($chars) - 1);
+        $password .= $chars[$index];
+    }
+    
+    return $password;
+}
+
+// Генерация случайного цвета в формате HEX
+function generateRandomColor() {
+    $color = '#';
+    
+    for ($i = 0; $i < 6; $i++) {
+        $digit = dechex(rand(0, 15));
+        $color .= $digit;
+    }
+    
+    return $color;
+}
+
+// Генерация случайного числа в заданном диапазоне
+function generateRandomNumber($min, $max) {
+    return rand($min, $max);
+}
+
+// Использование функций для генерации данных
+$password = generatePassword(10);
+$color = generateRandomColor();
+$number = generateRandomNumber(1, 100);
+
+echo "Случайный пароль: {$password}\n";
+echo "Случайный цвет: {$color}\n";
+echo "Случайное число: {$number}\n";
+
+?>
